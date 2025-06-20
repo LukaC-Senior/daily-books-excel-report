@@ -3,10 +3,11 @@ from bs4 import BeautifulSoup
 from clean_excel import clean
 
 base_url = "https://books.toscrape.com/"
-next_page = "catalogue/page-1.html"
     
 def scrap_all_books():
     all_books = []
+    next_page = "catalogue/page-1.html"
+
     while next_page:
     # Build full URL
         url = base_url + next_page
@@ -31,6 +32,9 @@ def scrap_all_books():
             next_page = None
     
     clean(all_books=all_books)
+
+if __name__ == "__main__":
+    scrap_all_books()
     
     
 
